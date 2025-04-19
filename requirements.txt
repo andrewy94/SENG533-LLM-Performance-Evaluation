@@ -1,0 +1,11 @@
+torch
+vllm
+transformers
+bitsandbytes
+accelerate
+psutil
+pynvml
+datasets
+matplotlib
+numpy
+scipy
