@@ -72,9 +72,9 @@ def create_violin_plot(title, ylabel, data_lists, filename, color):
 # generate violin plots
 create_violin_plot('GPU Utilization Distribution', '% Utilization', metrics_raw["gpu_utilization"], "violin_gpu_utilization.png", 'tab:blue')
 create_violin_plot('GPU Memory Used Distribution', 'Memory Used (MB)', metrics_raw["gpu_memory_used"], "violin_gpu_memory_used.png", 'tab:green')
-create_violin_plot('GPU Power Usage Distribution', 'Power Usage (mW)', metrics_raw["gpu_power_usage"], "violin_gpu_power_usage.png", 'tab:red')
+create_violin_plot('GPU Power Usage Distribution', 'Power Usage (W)', metrics_raw["gpu_power_usage"], "violin_gpu_power_usage.png", 'tab:red')
 create_violin_plot('CPU Utilization Distribution', '% Utilization', metrics_raw["cpu_utilization"], "violin_cpu_utilization.png", 'tab:cyan')
-create_violin_plot('CPU Memory Used Distribution', 'Memory Used (MB)', metrics_raw["cpu_memory_used"], "violin_cpu_memory_used.png", 'tab:purple')
+create_violin_plot('CPU Memory Used Distribution', 'Memory Used (GB)', metrics_raw["cpu_memory_used"], "violin_cpu_memory_used.png", 'tab:purple')
 
 # generate bar plot for throughput
 throughput_values = [np.mean(t) for t in metrics_raw["throughput"]]
