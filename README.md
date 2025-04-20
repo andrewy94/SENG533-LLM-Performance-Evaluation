@@ -13,7 +13,7 @@ This project compares system performance of a large language model across full p
 
 - **Dataset:** [`SVAMP`](https://huggingface.co/datasets/ChilleD/SVAMP)
 
-A dataset of grade school math word problems used to evaluate model inference performance.
+A dataset of elementary-level math word problems used to evaluate model inference performance.
 
 ---
 
