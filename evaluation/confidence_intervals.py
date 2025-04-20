@@ -41,20 +41,22 @@ for file in json_files:
 # 95% confidence interval
 def compute_confidence_interval(data, confidence=0.95):
     n = len(data)
-    m = np.mean(data)
-    se_val = sem(data)
+    mean = np.mean(data)
+    std_dev = np.std(data, ddof=1)  # Sample standard deviation
+    se_val = std_dev / np.sqrt(n)
     h = se_val * t.ppf((1 + confidence) / 2., n - 1)
-    return m, m - h, m + h
+    return mean, std_dev, mean - h, mean + h
 
 # perform statistical analysis
-print("95% Confidence Intervals\n" + "-" * 60)
+print("95% Confidence Intervals (Sample Std Dev)\n" + "-" * 60)
 
 for metric, data_lists in metrics_raw.items():
     print(f"\nMetric: {metric.replace('_', ' ').title()}")
-    
-    # Confidence Intervals for each model
-    print("  Confidence Intervals (95%)")
+
     for model_name, data in zip(model_names, data_lists):
-        mean, lower, upper = compute_confidence_interval(data)
-        print(f"    {model_name}: Mean = {mean:.2f}, 95% CI = ({lower:.2f}, {upper:.2f})")
+        mean, std_dev, lower, upper = compute_confidence_interval(data)
+        print(f"  {model_name}:")
+        print(f"    Mean = {mean:.2f}")
+        print(f"    Std Dev (Sample) = {std_dev:.2f}")
+        print(f"    95% CI = ({lower:.2f}, {upper:.2f})")
 
